@@ -104,6 +104,7 @@ abstract class AphrontHTTPSink extends Phobject {
    * @return void
    */
   final public function writeResponse(AphrontResponse $response) {
+      dd($response);
     $response->willBeginWrite();
 
     // Build the content iterator first, in case it throws. Ideally, we'd

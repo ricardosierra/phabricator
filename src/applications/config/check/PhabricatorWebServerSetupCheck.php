@@ -7,6 +7,7 @@ final class PhabricatorWebServerSetupCheck extends PhabricatorSetupCheck {
   }
 
   protected function executeChecks() {
+      return true;
     // The documentation says these headers exist, but it's not clear if they
     // are entirely reliable in practice.
     if (isset($_SERVER['HTTP_X_MOD_PAGESPEED']) ||

@@ -193,7 +193,7 @@ final class PhabricatorStartup {
   }
 
   public static function loadCoreLibraries() {
-    $phabricator_root = dirname(dirname(dirname(__FILE__)));
+    $phabricator_root = PLAYGROUND_PATH;
     $libraries_root = dirname($phabricator_root);
 
     $root = null;
@@ -212,6 +212,7 @@ final class PhabricatorStartup {
         "update your PHP 'include_path' to include the parent directory of ".
         "libphutil/.");
     }
+
 
     phutil_load_library('arcanist/src');
 
@@ -560,24 +561,24 @@ final class PhabricatorStartup {
    * @task validation
    */
   private static function verifyRewriteRules() {
-    if (isset($_REQUEST['__path__']) && strlen($_REQUEST['__path__'])) {
+    if (defined('PLAYGROUND_PATH') && strlen(PLAYGROUND_PATH)) {
       return;
     }
 
-    if (php_sapi_name() == 'cli-server') {
-      // Compatibility with PHP 5.4+ built-in web server.
-      $url = parse_url($_SERVER['REQUEST_URI']);
-      $_REQUEST['__path__'] = $url['path'];
-      return;
-    }
+    // if (php_sapi_name() == 'cli-server') {
+    //   // Compatibility with PHP 5.4+ built-in web server.
+    //   $url = parse_url($_SERVER['REQUEST_URI']);
+    //   PLAYGROUND_PATH = $url['path'];
+    //   return;
+    // }
 
-    if (!isset($_REQUEST['__path__'])) {
+    if (!defined('PLAYGROUND_PATH')) {
       self::didFatal(
         "Request parameter '__path__' is not set. Your rewrite rules ".
         "are not configured correctly.");
     }
 
-    if (!strlen($_REQUEST['__path__'])) {
+    if (!strlen(PLAYGROUND_PATH)) {
       self::didFatal(
         "Request parameter '__path__' is set, but empty. Your rewrite rules ".
         "are not configured correctly. The '__path__' should always ".

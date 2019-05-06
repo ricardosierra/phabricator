@@ -20,6 +20,7 @@ final class PhabricatorDatabaseRef
 
   private $host;
   private $port;
+  private $database = 'boss';
   private $user;
   private $pass;
   private $disabled;
@@ -60,6 +61,15 @@ final class PhabricatorDatabaseRef
 
   public function getPort() {
     return $this->port;
+  }
+
+  public function setDatabase($database) {
+    $this->database = $database;
+    return $this;
+  }
+
+  public function getDatabase() {
+    return $this->database;
   }
 
   public function setUser($user) {
@@ -703,7 +713,7 @@ final class PhabricatorDatabaseRef
       'pass' => $this->getPass(),
       'host' => $this->getHost(),
       'port' => $this->getPort(),
-      'database' => null,
+      'database' => $this->getDatabase(),
       'retries' => $default_retries,
       'timeout' => $default_timeout,
       'persistent' => $this->getUsePersistentConnections(),

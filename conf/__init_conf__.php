@@ -4,8 +4,8 @@ function phabricator_read_config_file($original_config) {
   $root = dirname(dirname(__FILE__));
 
   // Accept either "myconfig" (preferred) or "myconfig.conf.php".
-  $config = preg_replace('/\.conf\.php$/', '', $original_config);
-  $full_config_path = $root.'/conf/'.$config.'.conf.php';
+  $config = 'production'; //preg_replace('/\.conf\.php$/', '', $original_config);
+  $full_config_path = $original_config; //$root.'/conf/'.$config.'.conf.php';
 
   if (!Filesystem::pathExists($full_config_path)) {
     // These are very old configuration files which we used to ship with
@@ -44,25 +44,23 @@ function phabricator_read_config_file($original_config) {
         $files));
   }
 
-  // Make sure config file errors are reported.
-  $old_error_level = error_reporting(E_ALL | E_STRICT);
-  $old_display_errors = ini_get('display_errors');
-  ini_set('display_errors', 1);
+  $conf = [
+    // 'mysql' => [
+        'mysql.host' => config('database.connections.mysql.host'),
+        'mysql.port' => config('database.connections.mysql.port'),
+        'mysql.user' => config('database.connections.mysql.username'),
+        'mysql.pass' => config('database.connections.mysql.password'),
+        'mysql.database' => config('database.connections.mysql.database'),
 
-    ob_start();
-    $conf = include $full_config_path;
-    $errors = ob_get_clean();
+        'cluster.instance' => '',
+        'phabricator.serious-business' => '',
+        'phabricator.base-uri' => \Validate\Url::toDatabase(config('app.url')),
+        'cluster.instance' => '',
+        'cluster.instance' => '',
+        'cluster.instance' => '',
 
-  error_reporting($old_error_level);
-  ini_set('display_errors', $old_display_errors);
-
-  if ($conf === false) {
-    throw new Exception(
-      pht(
-        "Failed to read config file '%s': %s",
-        $config,
-        $errors));
-  }
+    // ]
+  ];
 
   return $conf;
 }

@@ -1,0 +1,13 @@
+{
+    "name": "sierra/phactory",
+    "type": "library",
+    "require": {
+        "ricardosierra/validate": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Ricardo R Sierra",
+            "email": "ricardo@sierratecnologia.com.br"
+        }
+    ]
+}

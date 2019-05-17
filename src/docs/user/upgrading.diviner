@@ -18,7 +18,7 @@ to a useful new feature or an important security change.
 Staying On Top of Changes
 =========================
 
-We release a weekly [[https://secure.phabricator.com/w/changelog | Changelog]],
+We release a weekly [['.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/w/changelog | Changelog]],
 which describes changes in the previous week. You can look at the changelogs
 for an idea of what new features are available, upcoming changes, security
 information, and warnings about compatibility issues or migrations.
@@ -81,7 +81,7 @@ set -e
 set -x
 
 # This is an example script for updating Phabricator, similar to the one used to
-# update <https://secure.phabricator.com/>. It might not work perfectly on your
+# update <'.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/>. It might not work perfectly on your
 # system, but hopefully it should be easy to adapt. This script is not intended
 # to work without modifications.
 

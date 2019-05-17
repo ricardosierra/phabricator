@@ -142,4 +142,4 @@ echo
 echo
 echo "Install probably worked mostly correctly. Continue with the 'Configuration Guide':";
 echo
-echo "    https://secure.phabricator.com/book/phabricator/article/configuration_guide/";
+echo "    '.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/book/phabricator/article/configuration_guide/";

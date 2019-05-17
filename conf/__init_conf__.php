@@ -55,12 +55,20 @@ function phabricator_read_config_file($original_config) {
         'cluster.instance' => '',
         'phabricator.serious-business' => '',
         'phabricator.base-uri' => \Validate\Url::toDatabase(config('app.url')),
-        'cluster.instance' => '',
-        'cluster.instance' => '',
-        'cluster.instance' => '',
+        'phabricator.production-uri' => \Validate\Url::toDatabase(config('app.url')),
+        'phabricator.allowed-uris' => '',
+        'debug.time-limit' => '',
+        'debug.sample-rate' => '',
+        'debug.stop-on-redirect' => '',
+        'phabricator.developer-mode' => '',
+        'cluster.addresses' => '',
+        'security.alternate-file-domain' => '',
+        'phurl.short-uri' => '',
 
     // ]
   ];
+
+  // Use: PhabricatorEnv::getEnvConfig('mysql.database')
 
   return $conf;
 }

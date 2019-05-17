@@ -252,5 +252,5 @@ Next Steps
 
 Continue by:
 
-  - visiting the [[ https://secure.phabricator.com/w/community_resources/ |
+  - visiting the [[ '.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/w/community_resources/ |
     Community Resources ]] page to find or share extensions and libraries.

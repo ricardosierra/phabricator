@@ -144,7 +144,7 @@ complete, and that the root cause isn't custom code or local extensions. Using
 a test instance will avoid disrupting other users on your install.
 
 **Test Repositories**: There are several test repositories on
-`secure.phabricator.com` which you can push commits to if you need to build
+`secure.'.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'` which you can push commits to if you need to build
 an example to demonstrate a problem.
 
 For example, if you're seeing an issue with a certain filename but the commit
@@ -241,7 +241,7 @@ more than one install.
 
 If the issue is important but falls outside the scope of permissible bug
 reports, we're happy to provide more tailored support at consulting rates. See
-[[ https://secure.phabricator.com/w/consulting/ | Consulting ]] for details.
+[[ '.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/w/consulting/ | Consulting ]] for details.
 
 
 Next Steps

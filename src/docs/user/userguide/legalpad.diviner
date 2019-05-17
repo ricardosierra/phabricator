@@ -130,6 +130,6 @@ Roadmap
 
 You can find discussion about the Legalpad roadmap here:
 
-https://secure.phabricator.com/T5505
+'.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/T5505
 
 If there are features you'd like to see, let us know.

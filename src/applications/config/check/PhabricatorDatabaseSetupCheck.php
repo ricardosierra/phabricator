@@ -124,7 +124,7 @@ final class PhabricatorDatabaseSetupCheck extends PhabricatorSetupCheck {
     $databases = queryfx_all($conn_raw, 'SHOW DATABASES');
     $databases = ipull($databases, 'Database', 'Database');
 
-    if (empty($databases[$namespace.'_meta_data'])) {
+    if (empty($databases[PhabricatorEnv::getEnvConfig('mysql.database')])) {
       $message = pht(
         'Run the storage upgrade script to setup databases (host "%s" has '.
         'not been initialized).',

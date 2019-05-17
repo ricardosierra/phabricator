@@ -134,7 +134,7 @@ final class PhabricatorEnv extends Phobject {
 
     // TODO: Add a "locale.default" config option once we have some reasonable
     // defaults which aren't silly nonsense.
-    self::setLocaleCode('en_US');
+    self::setLocaleCode('pt_BR');
   }
 
   public static function beginScopedLocale($locale_code) {
@@ -478,7 +478,7 @@ final class PhabricatorEnv extends Phobject {
     );
 
     $uri = new PhutilURI(
-      'https://secure.phabricator.com/diviner/find/',
+      ''.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/diviner/find/',
       $params);
 
     return phutil_string_cast($uri);

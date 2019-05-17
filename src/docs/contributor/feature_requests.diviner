@@ -122,7 +122,7 @@ interested in and a good fit for where we want the product to go, it may take
 us a long time to get around to building it.
 
 We work full time on Phabricator, and our long-term roadmap (which we call our
-[[ https://secure.phabricator.com/w/starmap/ | Starmap ]]) has many years worth
+[[ '.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/w/starmap/ | Starmap ]]) has many years worth
 of work. Your feature request is competing against thousands of other requests
 for priority.
 
@@ -136,7 +136,7 @@ number of users, the size of the request queue means that it is mathematically
 unlikely to be near the top.
 
 You can find some information about how we prioritize in
-[[ https://secure.phabricator.com/w/planning/ | Planning ]]. In particular,
+[[ '.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/w/planning/ | Planning ]]. In particular,
 we reprioritize frequently and can not accurately predict when we'll build a
 feature which isn't very near to top of the queue.
 

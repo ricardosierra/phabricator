@@ -57,8 +57,9 @@ abstract class PhabricatorLiskDAO extends LiskDAO {
    * @task config
    */
   protected function establishLiveConnection($mode) {
-    $namespace = self::getStorageNamespace();
-    $database = $namespace.'_'.$this->getApplicationName();
+    // $namespace = self::getStorageNamespace();
+    // $database = $namespace.'_'.$this->getApplicationName();
+    $database = PhabricatorEnv::getEnvConfig('mysql.database');
 
     $is_readonly = PhabricatorEnv::isReadOnly();
 

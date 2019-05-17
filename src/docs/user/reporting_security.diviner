@@ -33,4 +33,4 @@ Get Updated
 ===========
 
 General information about security changes is reported weekly in the
-[[ https://secure.phabricator.com/w/changelog/ | Changelog ]].
+[[ '.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/w/changelog/ | Changelog ]].

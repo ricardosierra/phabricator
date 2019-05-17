@@ -1008,7 +1008,7 @@ final class DifferentialChangesetParser extends Phobject {
         $old = null;
         $new = null;
         // TODO: Improve the architectural issue as discussed in D955
-        // https://secure.phabricator.com/D955
+        // '.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/D955
         $reference = $this->getRenderingReference();
         $parts = explode('/', $reference);
         if (count($parts) == 2) {

@@ -78,5 +78,5 @@ Documentation is now available in `javelin/docs/`.
 = Editing javelinjs.com =
 
 The source for javelinjs.com lives in `javelin/support/webroot/`. The site
-itself is served off the phabricator.com host. You need access to that host to
+itself is served off the '.PhabricatorEnv::getEnvConfig('phabricator.base-uri').' host. You need access to that host to
 push it.

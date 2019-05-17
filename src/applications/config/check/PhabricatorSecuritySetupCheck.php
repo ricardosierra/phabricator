@@ -37,7 +37,7 @@ final class PhabricatorSecuritySetupCheck extends PhabricatorSetupCheck {
         phutil_tag(
           'a',
           array(
-            'href' => 'https://secure.phabricator.com/T6185',
+            'href' => ''.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/T6185',
             'target' => '_blank',
           ),
           pht('T6185 "Shellshock" Bash Vulnerability')));

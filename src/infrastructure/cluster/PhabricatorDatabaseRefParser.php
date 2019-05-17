@@ -6,6 +6,7 @@ final class PhabricatorDatabaseRefParser
   private $defaultPort = 3306;
   private $defaultUser;
   private $defaultPass;
+  private $defaultDatabase;
 
   public function setDefaultPort($default_port) {
     $this->defaultPort = $default_port;
@@ -32,12 +33,22 @@ final class PhabricatorDatabaseRefParser
 
   public function getDefaultPass() {
     return $this->defaultPass;
-  }
+  }     
+
+  public function setDefaultDatabase($default_database) {                                                                                                                                       
+    $this->defaultDatabase = $default_database;                                                                                                                                                 
+    return $this;                                                                                                                                                                               
+  }                                                                                                                                                                                             
+                                                                                                                                                                                                
+  public function getDefaultDatabase() {                                                                                                                                                        
+    return $this->defaultPass;                                                                                                                                                                  
+  }  
 
   public function newRefs(array $config) {
     $default_port = $this->getDefaultPort();
     $default_user = $this->getDefaultUser();
     $default_pass = $this->getDefaultPass();
+    $default_database = $this->getDefaultDatabase();
 
     $refs = array();
 
@@ -46,6 +57,7 @@ final class PhabricatorDatabaseRefParser
       $host = $server['host'];
       $port = idx($server, 'port', $default_port);
       $user = idx($server, 'user', $default_user);
+      $database = idx($server, 'database', $default_database);
       $disabled = idx($server, 'disabled', false);
 
       $pass = idx($server, 'pass');
@@ -65,6 +77,7 @@ final class PhabricatorDatabaseRefParser
         ->setPort($port)
         ->setUser($user)
         ->setPass($pass)
+        ->setDatabase($database)
         ->setDisabled($disabled)
         ->setIsMaster($is_master)
         ->setUsePersistentConnections($use_persistent);

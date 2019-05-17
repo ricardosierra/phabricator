@@ -5,7 +5,7 @@
   "preface": "Information for Phabricator contributors and developers.",
   "root": "../../../",
   "uri.source":
-    "https://secure.phabricator.com/diffusion/P/browse/master/%f$%l",
+    "'.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/diffusion/P/browse/master/%f$%l",
   "rules": {
     "(\\.diviner$)": "DivinerArticleAtomizer"
   },

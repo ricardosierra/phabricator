@@ -20,11 +20,11 @@ Phabricator is developed and maintained by [Phacility](http://phacility.com).
 
 **SUPPORT RESOURCES**
 
-For resources on filing bugs, requesting features, reporting security issues, and getting other kinds of support, see [Support Resources](https://secure.phabricator.com/book/phabricator/article/support/).
+For resources on filing bugs, requesting features, reporting security issues, and getting other kinds of support, see [Support Resources]('.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/book/phabricator/article/support/).
 
 **NO PULL REQUESTS!**
 
-We do not accept pull requests through GitHub. If you would like to contribute code, please read our [Contributor's Guide](https://secure.phabricator.com/book/phabcontrib/article/contributing_code/).
+We do not accept pull requests through GitHub. If you would like to contribute code, please read our [Contributor's Guide]('.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/book/phabcontrib/article/contributing_code/).
 
 **LICENSE**
 

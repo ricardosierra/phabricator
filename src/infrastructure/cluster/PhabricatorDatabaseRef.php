@@ -708,6 +708,10 @@ final class PhabricatorDatabaseRef
       $default_timeout = 2;
     }
 
+    if (isset($options['database'])) {
+        unset($options['database']);
+    }
+
     $spec = $options + array(
       'user' => $this->getUser(),
       'pass' => $this->getPass(),

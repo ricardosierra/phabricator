@@ -185,6 +185,7 @@ final class PhabricatorEnv extends Phobject {
     $stack->pushSource($default_source);
 
     $env = self::getSelectedEnvironmentName();
+    
     if ($env) {
       $stack->pushSource(
         id(new PhabricatorConfigFileSource($env))
@@ -350,11 +351,14 @@ final class PhabricatorEnv extends Phobject {
       return self::$cache[$key];
     }
 
+
+
     $result = self::$sourceStack->getKeys(array($key));
     if (array_key_exists($key, $result)) {
       self::$cache[$key] = $result[$key];
       return $result[$key];
     } else {
+        var_dump(self::$sourceStack->getKeys());
       throw new Exception(
         pht(
           "No config value specified for key '%s'.",
@@ -478,7 +482,7 @@ final class PhabricatorEnv extends Phobject {
     );
 
     $uri = new PhutilURI(
-      ''.PhabricatorEnv::getEnvConfig('phabricator.base-uri').'/diviner/find/',
+      ''.env('APP_URL').'/diviner/find/',
       $params);
 
     return phutil_string_cast($uri);
@@ -496,7 +500,7 @@ final class PhabricatorEnv extends Phobject {
   }
 
   public static function getAnyBaseURI() {
-    $base_uri = self::getEnvConfig('phabricator.base-uri');
+    $base_uri = env('APP_URL');
 
     if (!$base_uri) {
       $base_uri = self::getRequestBaseURI();
